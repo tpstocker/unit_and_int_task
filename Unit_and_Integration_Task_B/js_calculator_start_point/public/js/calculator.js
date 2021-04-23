@@ -18,7 +18,11 @@ Calculator.prototype.multiply = function(number){
 }
 
 Calculator.prototype.divide = function(number){
-  this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+  if (number === 0){
+    this.runningTotal = "Not allowed"
+  } else {
+    this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+  }
 }
 
 

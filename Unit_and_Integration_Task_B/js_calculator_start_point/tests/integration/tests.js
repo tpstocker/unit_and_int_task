@@ -22,7 +22,7 @@ describe('calculator functionality', function() {
 it("should update display with running total", function(){
   running_total = element(by.css('#running_total'))
   element(by.css('#number2')).click();
-  expect(running_total.getAttribute("value")).to.eventually.equal("3");
+  expect(running_total.getAttribute("value")).to.eventually.equal("2");
 })
 
 
@@ -92,12 +92,12 @@ it("should be able to show very large numbers", function(){
 
 
 // 5. What does the code do in exceptional circumstances? Specifically, if you divide by zero, what is the effect? Write a test to describe what you'd prefer to happen, and then correct the code to make that test pass (you will need to modify the Calculator model to meet this requirement).
-// it("should be able to show decimal numbers", function(){
-//   running_total = element(by.css('#running_total'))
-//   element(by.css('#number7')).click();
-//   element(by.css('#operator_divide')).click();
-//   element(by.css('#number0')).click();
-//   element(by.css('#operator_equals')).click();
-//   expect(running_total.getAttribute("value")).to.eventually.equal("7");
-// })
+it('should equal not allowed if divided by 0', function(){
+  running_total = element(by.css('#running_total'))
+  element(by.css('#number1')).click();
+  element(by.css('#operator_divide')).click();
+  element(by.css('#number0')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('Not allowed')
+  })
 });
